@@ -11,3 +11,15 @@ export const fetchOffers = async () => {
     return [];
   }
 };
+
+export const loginBackend = async (email: string, password: string) => {
+  try {
+    const response = await axios.post('/api/login', {
+      email,
+      password,
+    });
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

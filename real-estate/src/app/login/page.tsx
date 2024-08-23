@@ -1,22 +1,90 @@
-import { fetchOffers } from '../lib/api';
+"use client"
+import React from "react";
+import { useRouter } from 'next/navigation';
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as S from './loginStyles'
+import { loginBackend } from "../lib/api"
+import RedBanner from "../Components/RedBanner";
 
-const Page = async () => {
-  const offers = await fetchOffers();
-  console.log(offers)
 
 
+function Login() {
+  const router = useRouter();
+  const [loginError, setLoginError] = useState<string | null>(null);
+  
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm<{
+    email: string;
+    password: string;
+  }>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = async (value: any) => {
+    try {
+      const response = await loginBackend(
+        getValues("email"),
+        getValues("password"),
+      );
+
+      // Sprawdzenie statusu odpowiedzi
+      if (response.status === 200) {
+        // Przekierowanie do strony chronionej po zalogowaniu
+        router.push('/auths');
+      } else {
+        setLoginError("Nieprawidłowy email lub hasło");
+      }
+    } catch (error: any) {
+      setLoginError("Nieprawidłowy email lub hasło");
+    }
+  };
   return (
-    <div>
-      <h1>Oferty Nieruchomości</h1>
-      <ul>
-        {offers.map((offer: any) => (
-          <li key={offer._id}>
-            {offer.rodzaj} - {offer.kategoria} - {offer.miejscowosc}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+    <RedBanner 
+    text="Logowanie"
+    buttonText=""
+    buttonStyle={{ border: 'none' }}  
+    textStyle={{marginLeft:'20px' }}
+    divStyle={{justifyContent: 'flex-start' }}  
+  />
+    <S.Container method="POST" onSubmit={handleSubmit(onSubmit)}>
+ 
+      <S.EmailDiv>
+        <label htmlFor="email">Email:</label>
+        <S.Input
+          id="email"
+          type="email"
+          {...register("email", { required: "Email jest wymagany" })}
+        />
+        {errors.email ? (
+          <p> {errors.email.message as React.ReactNode} </p>
+        ) : null}
+      </S.EmailDiv>
+      <S.PasswordDiv className="password">
+        <label htmlFor="password">Hasło:</label>
+        <S.Input
+          id="password"
+          type="password"
+          {...register("password", { required: "Hasło jest wymagane" })}
+        />
+        {errors.password && <p>{errors.password.message as React.ReactNode}</p>}
+      </S.PasswordDiv>
+      {loginError && <p>{loginError}</p>}
+      <S.Button data-testid="login-button" type="submit">
+        ZALOGUJ
+      </S.Button>
+    </S.Container>
+    </>
   );
-};
+}
 
-export default Page;
+export default Login;

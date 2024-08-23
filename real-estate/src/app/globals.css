@@ -16,10 +16,12 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-
+html, body {
+  height: 100%;
+  margin: 0;
 }
+
+
 
 @layer utilities {
   .text-balance {
