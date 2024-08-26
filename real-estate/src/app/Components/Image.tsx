@@ -8,7 +8,7 @@ const MyImage = () => {
             src={MainImg} 
             alt="Szczęśliwi ludzie w nowym domu" 
             fill
-            style={{ objectFit: 'cover' }} // lub "contain" w zależności od potrzeb
+            style={{ objectFit: 'cover' }} 
         
     
         />

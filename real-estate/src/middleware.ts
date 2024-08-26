@@ -4,17 +4,24 @@ const isProtectedPath = (pathname: string) => ['/auths', '/addoffers'].includes(
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const accessTokenCookie = request.cookies.get('accessToken');
+  const accessToken = accessTokenCookie?.value;  // Pobieranie wartości string z obiektu RequestCookie
 
+  // Sprawdzenie chronionych ścieżek
   if (isProtectedPath(pathname)) {
-    const accessToken = request.cookies.get('accessToken');
-
     if (!accessToken) {
       const url = new URL('/login', request.url);
       return NextResponse.redirect(url);
     }
-
-    // Możesz dodać tutaj dodatkowe sprawdzanie poprawności tokena, np. dekodowanie JWT
+    
+    // Opcjonalnie: dodanie logiki weryfikacji tokena (np. dekodowanie JWT)
   }
 
-  return NextResponse.next();
+  // Dodanie tokena do nagłówków, aby był dostępny na serwerze
+  const response = NextResponse.next();
+  if (accessToken) {
+    response.headers.set('x-access-token', accessToken);
+  }
+
+  return response;
 }

@@ -7,7 +7,7 @@ export async function GET() {
     await dbConnect();
     console.log('Database connected successfully');
 
-    const offers = await Offer.find(); // Pobierz wszystkie oferty, bez pola 'promote'
+    const offers = await Offer.find(); 
     return NextResponse.json(offers, { status: 200 });
   } catch (error) {
     console.error('Failed to fetch offers:', error);

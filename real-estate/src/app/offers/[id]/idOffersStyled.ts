@@ -1,5 +1,17 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  display: flex;
+
+  padding: 20px;
+`;
+
+export const OfferWrapper = styled.div`
+  display: flex;
+  flex-direction:column
+`;
+
+
 // Styl dla kontenera głównego zdjęcia
 export const MainImageWrapper = styled.div`
   position: relative;

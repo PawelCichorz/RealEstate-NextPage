@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Search from '../../Components/Search';
 import { ObjectId } from 'mongodb';
 import Cookies from 'js-cookie'; 
+import RedBanner from '../../Components/RedBanner';
 
 import * as S from './idOffersStyled'; 
 
@@ -26,7 +27,7 @@ interface IOffer {
   promote: boolean;
 }
 
-const OfferDetail: React.FC = () => {
+const OfferDetail = () => {
   const { id } = useParams();
   const router = useRouter();
   const [offer, setOffer] = useState<IOffer | null>(null);
@@ -38,7 +39,7 @@ const OfferDetail: React.FC = () => {
 
   useEffect(() => {
     const checkAuth = () => {
-      const accessToken = Cookies.get(); // Get token from cookies
+      const accessToken = Cookies.get('accessToken'); // Get token from cookies
       console.log(accessToken)
       setIsUserLoggedIn(!!accessToken);
     };
@@ -69,7 +70,7 @@ const OfferDetail: React.FC = () => {
     };
 
     fetchOffer();
-  }, [offer?.promote]);
+  }, [id,offer?.promote]);
 
   const handleImageClick = () => {
     setGalleryOpen(true);
@@ -132,7 +133,16 @@ const OfferDetail: React.FC = () => {
   if (!offer) return <p>No offer found</p>;
 
   return (
-    <div>
+    <>
+      <RedBanner 
+    text="Oferta"
+    buttonText=""
+    buttonStyle={{ border: 'none' }}  // Brak ramki przycisku
+    textStyle={{marginLeft:'20px' }}
+    divStyle={{justifyContent: 'flex-start' }}  // Justify-content na start
+  />
+    <S.Container>
+        <S.OfferWrapper>
      <p><strong>Numer Oferty:</strong> {offer._id ? offer._id.toString() : 'Brak ID'}</p>
       <p>{offer.kategoria} - {offer.rodzaj === 'sprzedaż' ? 'Sprzedaż' : 'Wynajem'}</p>
       {isUserLoggedIn && (
@@ -168,7 +178,9 @@ const OfferDetail: React.FC = () => {
           <p><strong>Opis:</strong> {offer.opis}</p>
         </div>
       </S.DetailsWrapper>
-      {/* Gallery Modal */}
+      </S.OfferWrapper>
+      <Search/>
+      
       {isGalleryOpen && offer.imageUrls.length > 0 && (
         <S.GalleryModal>
           <S.CloseButton onClick={closeGallery}>X</S.CloseButton>
@@ -185,7 +197,8 @@ const OfferDetail: React.FC = () => {
         </S.GalleryModal>
       )}
    
-    </div>
+    </S.Container>
+    </>
   );
 };
 

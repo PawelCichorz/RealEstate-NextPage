@@ -37,8 +37,8 @@ export async function POST(request: Request) {
     // Ustawienie ciasteczka z tokenem dostępu
     const response = NextResponse.json({ success: true });
     response.cookies.set('accessToken', accessToken, {
-      httpOnly: true,
-      secure: false,
+      httpOnly: false,
+      secure: true,
       path: '/',
       maxAge: 60 * 15, // 15 minut
     });

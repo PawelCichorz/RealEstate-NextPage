@@ -36,9 +36,9 @@ function Login() {
         getValues("password"),
       );
 
-      // Sprawdzenie statusu odpowiedzi
+   
       if (response.status === 200) {
-        // Przekierowanie do strony chronionej po zalogowaniu
+      
         router.push('/auths');
       } else {
         setLoginError("Nieprawidłowy email lub hasło");
