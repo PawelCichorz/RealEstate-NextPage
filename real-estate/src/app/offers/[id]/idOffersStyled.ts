@@ -2,21 +2,22 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-
-  padding: 20px;
+  justify-content: space-between;
+  padding: 10px;
 `;
 
 export const OfferWrapper = styled.div`
   display: flex;
-  flex-direction:column
+  flex-direction: column;
+  width: 70%;
 `;
-
 
 // Styl dla kontenera głównego zdjęcia
 export const MainImageWrapper = styled.div`
   position: relative;
+  display: flex;
   width: 100%;
-
+  height: 600px;
 `;
 
 // Styl dla kontenera galerii
@@ -47,9 +48,7 @@ export const CloseButton = styled.button`
   font-weight: bold;
 `;
 
-
 export const PromoteButton = styled.button`
-  
   background-color: #4a4a4a; /* Szary kolor tła */
   color: white; /* Biały tekst */
   border: none;
@@ -58,7 +57,7 @@ export const PromoteButton = styled.button`
   font-size: 18px; /* Trochę większy tekst */
   font-weight: bold;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Dodanie delikatnego cienia */
-  margin:5px;
+  margin: 5px;
 
   &:hover {
     background-color: #333333; /* Ciemniejszy szary na hover */
@@ -70,7 +69,9 @@ export const PromoteButton = styled.button`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Mniejszy cień po kliknięciu */
   }
 
-  transition: background-color 0.3s, box-shadow 0.3s; /* Płynna zmiana kolorów i cieni */
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s; /* Płynna zmiana kolorów i cieni */
 `;
 
 // Styl dla przycisku poprzedniego zdjęcia
@@ -108,25 +109,12 @@ export const GalleryImage = styled.img`
 `;
 
 export const DetailsWrapper = styled.div`
-  
-  padding: 20px;
+  padding: 5px;
   display: flex;
-div{
-    width:50%
-}
- 
-
-
-
-
-  h2 {
-    display: flex;
-    margin: 0;
-    font-size: 1.5em;
-  }
+  text-align: center;
 
   p {
-    padding: 5px;
+    padding: 10px;
     font-size: 1em;
   }
 
@@ -143,4 +131,10 @@ export const PriceParagraph = styled.p`
   border-radius: 4px; /* Zaokrąglenie rogów */
   font-weight: bold; /* Pogrubienie tekstu */
   margin: 0; /* Usunięcie marginesu, aby nie wpływał na inne elementy */
+`;
+
+export const SearchPromoted = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 350px;
 `;

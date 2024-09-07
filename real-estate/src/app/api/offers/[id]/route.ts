@@ -28,6 +28,9 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(offer, { status: 200 });
   } catch (error) {
     console.error('Failed to fetch offer:', error);
-    return NextResponse.json({ error: 'Failed to fetch offer' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to fetch offer' },
+      { status: 500 }
+    );
   }
 }

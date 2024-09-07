@@ -3,7 +3,10 @@ import Offer from '../../../../models/Offer'; // Ścieżka do modelu oferty
 import dbConnect from '../../../../lib/mongodb'; // Ścieżka do połączenia z bazą danych
 import { ObjectId } from 'mongodb'; // Import ObjectId do weryfikacji ID
 
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
   await dbConnect(); // Połącz z bazą danych
 
   const { id } = params;
@@ -19,7 +22,10 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     const promotedOffersCount = await Offer.countDocuments({ promote: true });
 
     if (!offer.promote && promotedOffersCount >= 5) {
-      return NextResponse.json({ message: 'Maximum of 5 promoted offers allowed' }, { status: 400 });
+      return NextResponse.json(
+        { message: 'Maximum of 5 promoted offers allowed' },
+        { status: 400 }
+      );
     }
 
     // Ustaw flagę promowania
@@ -31,6 +37,9 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
     return NextResponse.json(updatedOffer);
   } catch (error) {
     console.error('Failed to update offer promotion:', error);
-    return NextResponse.json({ error: 'Failed to update offer promotion' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to update offer promotion' },
+      { status: 500 }
+    );
   }
 }

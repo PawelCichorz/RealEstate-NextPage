@@ -19,8 +19,12 @@ export async function POST(req: NextRequest) {
 
     if (files.length > 0) {
       for (const file of files) {
-        if (file.size > 10 * 1024 * 1024) { // Sprawdzamy rozmiar pliku (10 MB)
-          return NextResponse.json({ error: 'Plik nie może być większy niż 10 MB' }, { status: 400 });
+        if (file.size > 10 * 1024 * 1024) {
+          // Sprawdzamy rozmiar pliku (10 MB)
+          return NextResponse.json(
+            { error: 'Plik nie może być większy niż 10 MB' },
+            { status: 400 }
+          );
         }
 
         // Define the path for saving the file
@@ -53,6 +57,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(newOffer, { status: 201 });
   } catch (error) {
     console.error('Failed to create offer:', error);
-    return NextResponse.json({ error: 'Failed to create offer' }, { status: 400 });
+    return NextResponse.json(
+      { error: 'Failed to create offer' },
+      { status: 400 }
+    );
   }
 }

@@ -3,21 +3,21 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-
+  width: 70%;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
 `;
 
 export const OfferCard = styled.div`
-display: flex;
+  display: flex;
 
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  width: 70%;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 
   &:hover {
@@ -48,8 +48,6 @@ export const DetailsWrapper = styled.div`
   justify-content: space-between;
   gap: 10px;
 
-
-
   h2 {
     display: flex;
     margin: 0;
@@ -66,13 +64,13 @@ export const DetailsWrapper = styled.div`
   }
 `;
 export const PriceParagraph = styled.p`
-  background-color:red;
- max-width: 130px;
+  background-color: red;
+  max-width: 130px;
   padding: 5px 2.5px;
   color: white;
 `;
 
- export const MoreButton = styled.button`
+export const MoreButton = styled.button`
   display: inline-block;
   margin-top: 10px;
   padding: 5px 10px;

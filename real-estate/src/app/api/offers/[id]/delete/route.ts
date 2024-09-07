@@ -3,7 +3,10 @@ import Offer from '../../../../models/Offer'; // Ścieżka do modelu oferty
 import dbConnect from '../../../../lib/mongodb'; // Ścieżka do połączenia z bazą danych
 import { ObjectId } from 'mongodb'; // Import ObjectId do weryfikacji ID
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
   await dbConnect(); // Połącz z bazą danych
 
   const { id } = params;
@@ -12,7 +15,7 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
   try {
     // Sprawdź, czy oferta istnieje w bazie danych
     const offer = await Offer.findById(new ObjectId(id));
-    
+
     if (!offer) {
       return NextResponse.json({ message: 'Offer not found' }, { status: 404 });
     }
@@ -20,9 +23,15 @@ export async function DELETE(request: NextRequest, { params }: { params: { id: s
     // Usuń ofertę z bazy danych
     await Offer.deleteOne({ _id: new ObjectId(id) });
 
-    return NextResponse.json({ message: 'Offer deleted successfully' }, { status: 200 });
+    return NextResponse.json(
+      { message: 'Offer deleted successfully' },
+      { status: 200 }
+    );
   } catch (error) {
     console.error('Failed to delete offer:', error);
-    return NextResponse.json({ error: 'Failed to delete offer' }, { status: 500 });
+    return NextResponse.json(
+      { error: 'Failed to delete offer' },
+      { status: 500 }
+    );
   }
 }

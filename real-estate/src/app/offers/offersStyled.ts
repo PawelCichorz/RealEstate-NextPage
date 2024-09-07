@@ -6,30 +6,32 @@ const Container = styled.div`
   padding: 20px;
 `;
 
- const OffersList = styled.div`
+const OffersList = styled.div`
   display: flex;
   flex-direction: column;
-  
-  width: 80%;;
+
+  width: 75%;
   padding: 20px;
 `;
- const OfferCard = styled.div`
- max-height:300px;
+const OfferCard = styled.div`
+  max-height: 300px;
   display: flex;
- 
+
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
- margin:15px;
+  margin: 15px;
 `;
 
 const ImageWrapper = styled.div`
-  position: relative; 
-  height: auto; 
-  display: flex; 
-justify-content:center;
-  flex-direction:column
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  width: 300px;
+  height: 250px;
 `;
 
 const DetailsWrapper = styled.div`
@@ -38,8 +40,6 @@ const DetailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 10px;
-
-
 
   h2 {
     display: flex;
@@ -57,17 +57,20 @@ const DetailsWrapper = styled.div`
   }
 `;
 
-
-
-const PriceParagraph = styled.p`
-  background-color:red;
- max-width: 130px;
+const PriceParagraph = styled.div`
+  display: inline-block;
+  max-width: 130px;
   padding: 5px 2.5px;
-  color: white;
+
+  p {
+    background-color: red;
+    color: white;
+    display: inline-block;
+  }
 `;
 
- const MoreButton = styled.button`
-  display: inline-block;
+const MoreButton = styled.button`
+  display: flex;
   margin-top: 10px;
   padding: 5px 10px;
   background-color: #0070f3;
@@ -82,4 +85,34 @@ const PriceParagraph = styled.p`
   }
 `;
 
-export { Container, DetailsWrapper, ImageWrapper, OfferCard, OffersList,PriceParagraph, MoreButton};
+const Box = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+`;
+
+const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+`;
+const PageNumber = styled.div`
+  margin: 0.5px;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+`;
+
+export {
+  Container,
+  DetailsWrapper,
+  ImageWrapper,
+  OfferCard,
+  OffersList,
+  PriceParagraph,
+  MoreButton,
+  Box,
+  Pagination,
+  PageNumber,
+};

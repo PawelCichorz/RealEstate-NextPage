@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import Link from 'next/link';
 
 const Container = styled.div`
@@ -11,8 +11,8 @@ const Container = styled.div`
 `;
 
 const ButtonOffers = styled.button`
-   background-color: red;
-   color:white;
+  background-color: red;
+  color: white;
   border-radius: 8px;
   padding: 7px 13px;
   width: 200px;
@@ -20,8 +20,8 @@ const ButtonOffers = styled.button`
 `;
 
 const ButtonPromote = styled.button`
-   background-color: red;
-   color:white;
+  background-color: red;
+  color: white;
   border-radius: 8px;
   padding: 7px 13px;
   width: 200px;
@@ -29,9 +29,7 @@ const ButtonPromote = styled.button`
 `;
 
 const StyledLink = styled(Link)`
-  
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 `;
 
-
-export {Container ,ButtonOffers,ButtonPromote,StyledLink}
+export { Container, ButtonOffers, ButtonPromote, StyledLink };

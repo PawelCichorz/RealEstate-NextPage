@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Container = styled.form`
   display: flex;
@@ -6,7 +6,6 @@ const Container = styled.form`
   align-items: center;
   min-height: 70vh;
   margin-top: 20px;
-  
 `;
 
 const EmailDiv = styled.div`
@@ -17,7 +16,7 @@ const PasswordDiv = styled.div`
 `;
 
 const Input = styled.input`
-border: solid 2px grey;
+  border: solid 2px grey;
   font-size: 15px;
   padding: 10px 25px;
   margin-left: 8px;

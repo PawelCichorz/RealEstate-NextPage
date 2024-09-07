@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import * as S from './offerStyles' // Import stylów
+import * as S from './offerStyles'; // Import stylów
 
 function OfferForm() {
   const [formData, setFormData] = useState({
@@ -21,9 +21,13 @@ function OfferForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -48,7 +52,7 @@ function OfferForm() {
         formDataToSend.append(key, value.toString());
       }
       // Add images
-      images.forEach(image => {
+      images.forEach((image) => {
         formDataToSend.append('images', image);
       });
 
@@ -91,14 +95,22 @@ function OfferForm() {
       <form onSubmit={handleSubmit}>
         <S.Label>
           Rodzaj:
-          <S.SelectInput name="rodzaj" value={formData.rodzaj} onChange={handleChange}>
+          <S.SelectInput
+            name="rodzaj"
+            value={formData.rodzaj}
+            onChange={handleChange}
+          >
             <option value="sprzedaż">Sprzedaż</option>
             <option value="wynajem">Wynajem</option>
           </S.SelectInput>
         </S.Label>
         <S.Label>
           Kategoria:
-          <S.SelectInput name="kategoria" value={formData.kategoria} onChange={handleChange}>
+          <S.SelectInput
+            name="kategoria"
+            value={formData.kategoria}
+            onChange={handleChange}
+          >
             <option value="dom">Dom</option>
             <option value="działka">Działka</option>
             <option value="mieszkanie">Mieszkanie</option>
@@ -106,7 +118,11 @@ function OfferForm() {
         </S.Label>
         <S.Label>
           Gmina:
-          <S.SelectInput name="gmina" value={formData.gmina} onChange={handleChange}>
+          <S.SelectInput
+            name="gmina"
+            value={formData.gmina}
+            onChange={handleChange}
+          >
             <option value="Skawina">Skawina</option>
             <option value="Brzeźnica">Brzeźnica</option>
             <option value="Kraków">Kraków</option>
@@ -114,8 +130,12 @@ function OfferForm() {
         </S.Label>
         <S.Label>
           Miejscowość:
-          <S.SelectInput name="miejscowość" value={formData.miejscowość} onChange={handleChange}>
-          <option value="Skawina">Skawina</option>
+          <S.SelectInput
+            name="miejscowość"
+            value={formData.miejscowość}
+            onChange={handleChange}
+          >
+            <option value="Skawina">Skawina</option>
             <option value="Brzeźnica">Brzeźnica</option>
             <option value="Kraków">Kraków</option>
           </S.SelectInput>
@@ -140,21 +160,33 @@ function OfferForm() {
         </S.Label>
         <S.Label>
           Woda:
-          <S.SelectInput name="woda" value={formData.woda} onChange={handleChange}>
+          <S.SelectInput
+            name="woda"
+            value={formData.woda}
+            onChange={handleChange}
+          >
             <option value="tak">Tak</option>
             <option value="nie">Nie</option>
           </S.SelectInput>
         </S.Label>
         <S.Label>
           Gaz:
-          <S.SelectInput name="gaz" value={formData.gaz} onChange={handleChange}>
+          <S.SelectInput
+            name="gaz"
+            value={formData.gaz}
+            onChange={handleChange}
+          >
             <option value="tak">Tak</option>
             <option value="nie">Nie</option>
           </S.SelectInput>
         </S.Label>
         <S.Label>
           Prąd:
-          <S.SelectInput name="prąd" value={formData.prąd} onChange={handleChange}>
+          <S.SelectInput
+            name="prąd"
+            value={formData.prąd}
+            onChange={handleChange}
+          >
             <option value="tak">Tak</option>
             <option value="nie">Nie</option>
           </S.SelectInput>
@@ -169,11 +201,7 @@ function OfferForm() {
         </S.Label>
         <S.Label>
           Zdjęcia:
-          <S.TextInput
-            type="file"
-            multiple
-            onChange={handleImageChange}
-          />
+          <S.TextInput type="file" multiple onChange={handleImageChange} />
         </S.Label>
         <S.SubmitButton type="submit" disabled={loading}>
           {loading ? 'Dodawanie...' : 'Dodaj Ofertę'}
