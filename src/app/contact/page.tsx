@@ -55,10 +55,10 @@ const Contact = () => {
   return (
     <>
       <RedBanner text="Kontakt" buttonText="" />
-      <div className="flex flex-col lg:flex-row lg:justify-between lg:mx-6 ">
+      <div className="flex flex-col lg:flex-row  lg:mx-6 ">
         <div className="flex flex-col lg:w-full">
-          <div className="flex flex-col lg:flex-row lg:justify-between m-6 items-center text-center">
-            <div className="mb-4 lg:mb-0">
+          <div className="flex flex-col lg:flex-row  m-6 items-center text-center justify-center ">
+            <div className="mb-4 lg:mb-0 w-1/2">
               <p className="font-bold">Biuro Nieruchomości Pawłowski</p>
               <p>Piłsudskiego 3a</p>
               <p className="mb-6">32-050 Skawina</p>
@@ -67,7 +67,7 @@ const Contact = () => {
               <p className="text-red-500 pb-8">Email: firma@o2.pl</p>
               <div className="flex flex-col">
                 <h3 className="pb-4">Media Społecznościowe</h3>
-                <div className="flex">
+                <div className="flex items-center w-full justify-center">
                   <Link
                     className="p-2 text-[30px] text-blue-500"
                     href="https://www.facebook.com"
@@ -100,8 +100,8 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:justify-between m-6 items-center text-center">
-            <div className="mb-4 lg:mb-0">
+          <div className="flex flex-col lg:flex-row  m-6 items-center text-center justify-center ">
+            <div className="mb-4 lg:mb-0 w-1/2 ">
               <p className="font-bold">
                 Biuro Nieruchomości Pawłowski Oddział Wadowice
               </p>
@@ -112,7 +112,7 @@ const Contact = () => {
               <p className="text-red-500 pb-8">Email: firma@gmail.com</p>
               <div className="flex flex-col">
                 <h3 className="pb-4">Media Społecznościowe</h3>
-                <div className="flex">
+                <div className="flex items-center w-full justify-center">
                   <Link
                     className="p-2 text-[30px] text-blue-500"
                     href="https://www.facebook.com"

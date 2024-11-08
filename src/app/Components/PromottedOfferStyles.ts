@@ -3,22 +3,22 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%; /* Zwiększenie szerokości dla lepszej widoczności na małych ekranach */
-  max-width: 1000px; /* Możesz dostosować maksymalną szerokość */
-  margin: 0 auto; /* Wyśrodkowanie kontenera */
+  width: 80%;
+  max-width: 870px;
+  margin: 0 auto;
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
 
   @media (max-width: 758px) {
-    width: 100%; /* Pełna szerokość na małych ekranach */
-    padding: 10px; /* Mniejsze paddingi */
+    width: 100%;
+    padding: 10px;
   }
 `;
 
 export const OfferCard = styled.div`
   display: flex;
-  flex-direction: column; /* Układ w kolumnie */
+  flex-direction: column;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -31,7 +31,7 @@ export const OfferCard = styled.div`
   }
 
   @media (min-width: 759px) {
-    flex-direction: row; /* Układ w wierszu na większych ekranach */
+    flex-direction: row;
   }
 `;
 
@@ -51,7 +51,7 @@ export const ImageWrapper = styled.div`
   }
 
   @media (max-width: 758px) {
-    height: 150px; /* Mniejsze zdjęcie na małych ekranach */
+    height: 150px;
   }
 `;
 
@@ -59,7 +59,7 @@ export const DetailsWrapper = styled.div`
   flex: 2;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Układ w kolumnie */
+  flex-direction: column;
   justify-content: space-between;
 
   h2 {
@@ -78,7 +78,7 @@ export const DetailsWrapper = styled.div`
   }
 
   @media (max-width: 758px) {
-    padding: 10px; /* Mniejsze paddingi na małych ekranach */
+    padding: 10px;
   }
 `;
 
@@ -89,7 +89,7 @@ export const PriceParagraph = styled.p`
   color: white;
 
   @media (max-width: 758px) {
-    font-size: 0.9em; /* Mniejszy tekst na małych ekranach */
+    font-size: 0.9em;
   }
 `;
 
@@ -109,6 +109,6 @@ export const MoreButton = styled.button`
   }
 
   @media (max-width: 758px) {
-    font-size: 12px; /* Mniejszy tekst na małych ekranach */
+    font-size: 12px;
   }
 `;

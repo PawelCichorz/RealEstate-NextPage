@@ -75,7 +75,7 @@ const PromotedOffers: React.FC = () => {
         <S.OfferCard key={offer._id.toString()}>
           <S.ImageWrapper>
             <Image
-              src={offer.imageUrls[0]} // Pierwsze zdjęcie
+              src={offer.imageUrls[0]}
               alt={`Offer Image 1`}
               width={200}
               height={300}
