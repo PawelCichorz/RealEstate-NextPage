@@ -31,5 +31,5 @@ An interactive real estate website for property agencies, built using **Next.js*
 
    npm run dev
 
-## Ownej
+## Owner
 pawelcichorz74@gmail.com
