@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# RealEstate-NextPage
 
-## Getting Started
+An interactive real estate website for property agencies, built using **Next.js**. The site fetches property listings from a MongoDB database and includes a full user registration and login system, token validation and refresh, logout functionality, the ability to add/remove and promote property listings, as well as an advanced search feature. It also supports pagination for displaying property offers.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Authentication**: Full user registration and login system, including token management for authentication and authorization.
+- **Property Management**: Users can add, remove, and promote property listings.
+- **Advanced Search**: Detailed search functionality that allows filtering by type, category, municipality, city, price, and area.
+- **Pagination**: Property listings are paginated to improve performance and user experience.
+- **Responsive Design**: The website is fully responsive and optimized for mobile and desktop devices.
+- **Security**: The application implements middleware to secure routes and validate authentication tokens.
+- **Email Notifications**: Integration with **NodeMailer** for sending notifications and emails.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** – A React framework for building server-rendered applications (SSR).
+- **MongoDB** – Database to store property listings.
+- **NodeMailer** – Used for sending emails through the platform.
+- **React Hook Form** – For handling form validation and submission.
+- **Styled Components** – For writing CSS styles directly in JavaScript.
+- **Mongoose** – ODM for MongoDB to interact with the database.
+- **JWT (JSON Web Tokens)** – Used for authentication and token management.
+- **Middleware** – To protect sensitive routes and manage session tokens.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+   git clone https://github.com/PawelCichorz/RealEstate-NextPage.git
 
-To learn more about Next.js, take a look at the following resources:
+   npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Ownej
+pawelcichorz74@gmail.com
